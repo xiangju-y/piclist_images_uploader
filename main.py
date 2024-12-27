@@ -29,7 +29,6 @@ class typora_images_url:
         if not matches:
             self.data['uploader'][self.uploader]['configList'].append(configlist)
             self.write_json()
-        # print(self.img_url)
         restart = self.plist_url()
         return restart
 
@@ -113,12 +112,15 @@ class typora_images_url:
         headers = {
             "Content-Type": "application/json"
         }
-        url = self.piclist_url + '/upload?' + f'picbed={self.uploader}&configName={self.img_path}&key={self.key}'
+        if self.key:
+            url = self.piclist_url + '/upload?' + f'picbed={self.uploader}&configName={self.img_path}&key={self.key}'
+        else:
+            url = self.piclist_url + '/upload?' + f'picbed={self.uploader}&configName={self.img_path}'
         response = requests.post(url=url, headers=headers, json=data)
         if response.status_code == 200:
-            return response.json()['result']
+            return response.json()
         else:
-            return response.text
+            return response.json()
 
 def main():
     parser = argparse.ArgumentParser(description="处理文件路径和相关信息")
@@ -141,9 +143,11 @@ def main():
                             uploader=args.uploader, piclist_url=args.piclist_url,
                             key=args.key)
     result = zhi.get_plictist()
-    for i in result:
-        print(i)
-
+    if result['success']:
+        for i in result['result']:
+            print(i)
+    else:
+        print(result['message'])
 
 if __name__ == '__main__':
     main()
