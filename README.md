@@ -1,4 +1,5 @@
-#  图片上传到piclist图床，并实现分类
+#  piclist_images_uploader
+> piclist图床上传工具，用于上传图片到piclist图床，并自动创建目录结构，使用于写博客，图片分类的需求
 > 图床上传全部基于第一个开始复制创建的，如图
 >
 ![image-20241227222531510](https://github.xiangfeng.us.kg/tuchang/main/typora/README/image-20241227222531510.png)

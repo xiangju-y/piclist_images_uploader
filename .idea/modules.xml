@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/typora.iml" filepath="$PROJECT_DIR$/.idea/typora.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/piclist_images_uploader.iml" filepath="$PROJECT_DIR$/.idea/piclist_images_uploader.iml" />
     </modules>
   </component>
 </project>
